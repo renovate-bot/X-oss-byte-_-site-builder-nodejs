@@ -4,7 +4,7 @@ const expressEjsLayouts = require('express-ejs-layouts');
 const axios = require('axios');
 
 const app = express();
-let port = 3000;
+let port = 8080;
 
 // Static files
 app.use(express.static('/public'));
@@ -113,7 +113,7 @@ app.get('/operation/:displayName/:operationId', (req, res) => {
 	checkOperation();
 });
 
-// Listen on port 3000
+// Listen on port 8080
 app.listen(port, () => {
 	console.log(`Your app is running on http://localhost:${port}/`);
 });
