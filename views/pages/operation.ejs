@@ -1,0 +1,54 @@
+<div class="container-title">
+	<h1 class="title">Check Site Operation Status</h1>
+	<p>
+		Check the status of your site tools operation via the id. Feel free to copy
+		the ID and check in few seconds.
+	</p>
+</div>
+<!-- <form method="post"> -->
+<div class="form-container">
+	<div class="input-div">
+		<input class="form-control" value="<%= operationID %>" readOnly />
+	</div>
+	<button class="btn" type="submit" onclick="window.location.reload()">
+		Refresh Operation Status
+	</button>
+</div>
+<!-- </form> -->
+<div class="services">
+	<div class="details">
+		<p><%= operationMessage %>..</p>
+	</div>
+</div>
+
+<div class="services">
+	<p class="description">
+		If message above indicates that "Operation has successfully finished", use
+		the links below to access your WP admin and the site itself.
+	</p>
+	<div class="details">
+		<a
+			href="http://<%= displayName %>.kinsta.cloud/wp-admin/"
+			target="_blank"
+			rel="noreferrer"
+			class="detail-link"
+		>
+			<p>Open WordPress admin</p>
+			<FiExternalLink />
+		</a>
+		<a
+			href="http://<%= displayName %>.kinsta.cloud/"
+			target="_blank"
+			rel="noreferrer"
+			class="detail-link"
+		>
+			<p>Open URL</p>
+			<FiExternalLink />
+		</a>
+	</div>
+</div>
+<script>
+	function test() {
+		alert('kjhjsj');
+	}
+</script>

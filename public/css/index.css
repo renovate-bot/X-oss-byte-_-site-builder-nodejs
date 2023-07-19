@@ -1,0 +1,251 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: rgb(156, 85, 34);
+    background: linear-gradient(90deg, rgba(156, 85, 34, 1) 0%, rgba(32, 50, 103, 1) 42%, rgba(13, 18, 25, 1) 69%, rgba(22, 47, 60, 1) 100%);
+    color: #fff;
+    font-family: 'Poppins',
+        sans-serif;
+}
+
+p {
+    font-weight: 100;
+}
+
+a {
+    text-decoration: none;
+}
+
+.app-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.kinsta-logo {
+    width: 100px;
+    margin: 40px 0;
+}
+
+.container {
+    background-color: #111319;
+    border-radius: 10px;
+    padding: 40px;
+    width: 60%;
+    border: 2px solid #5c5c5c;
+}
+
+.container-title {
+    text-align: center;
+    width: 70%;
+    margin: 0 auto 30px;
+}
+
+.container-title h1 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.container-title p {
+    font-size: .9rem;
+    margin-bottom: 20px;
+    color: gray;
+}
+
+.footer {
+    margin: 80px 0 50px;
+    text-align: center;
+    width: 100%;
+}
+
+.footer p {
+    font-size: .8rem;
+    color: rgb(196, 196, 196);
+}
+
+.footer p a {
+    color: rgb(196, 196, 196);
+    text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+    .kinsta-logo {
+        width: 100px;
+        margin: 50px 0;
+    }
+
+    .container {
+        padding: 20px;
+        width: 90%;
+    }
+
+    .container-title {
+        width: 90%;
+    }
+
+    .footer {
+        width: 80%;
+        margin: 100px 0 20px;
+    }
+}
+
+/* service section */
+
+/* .services { */
+/* display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px; */
+/* } */
+
+.form-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 30px;
+    gap: 10px;
+}
+
+.input-flex {
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.input-div {
+    width: 80%;
+    margin-bottom: 10px;
+}
+
+.input-div label {
+    display: block;
+    width: 100%;
+    margin-bottom: 5px;
+}
+
+.input-div span {
+    font-size: 12px;
+    color: gray;
+    display: inline-block;
+    margin-bottom: 5px;
+}
+
+.input-div .error-message {
+    color: red;
+    display: none;
+}
+
+.input-div .form-control {
+    width: 100%;
+    border-radius: 5px;
+    border: 1px solid #5c5c5c;
+    padding: 15px;
+    font-size: 1rem;
+    color: #fff;
+    background-color: #1f1f1f;
+}
+
+.input-div .form-control:focus {
+    outline: none;
+}
+
+.checkbox-flex {
+    display: flex;
+    width: 80%;
+}
+
+.checkbox-input {
+    flex-basis: 50%;
+}
+
+.checkbox-input label {
+    margin-left: 10px;
+}
+
+.form-btn {
+    width: 80%;
+}
+
+.btn {
+    width: 80%;
+    border-radius: 5px;
+    border: 1px solid #5c5c5c;
+    padding: 15px;
+    margin-top: 10px;
+    font-size: 1rem;
+    color: #fff;
+    background-color: #1f1f1f;
+    cursor: pointer;
+    background: linear-gradient(90deg, rgba(156, 85, 34, 1) 0%, rgba(32, 50, 103, 1) 42%, rgba(13, 18, 25, 1) 69%, rgba(22, 47, 60, 1) 100%);
+}
+
+.btn:hover {
+    background: #111319;
+}
+
+.details {
+    width: 100%;
+    border-radius: 5px;
+    border: 1px solid #5c5c5c;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+/* .details-flex {
+
+} */
+
+.details .name-details {
+    width: 50%;
+}
+
+.details .status-details {
+    width: 50%;
+}
+
+.tag {
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+.value {
+    font-size: 1.3rem;
+}
+
+.details .detail-link {
+    flex-basis: 50%;
+    display: flex;
+    align-items: center;
+    color: #fff;
+    gap: 5px;
+}
+
+.details .detail-link:hover {
+    color: gray;
+}
+
+.services .description {
+    font-size: .9rem;
+    margin: 20px 0;
+    color: gray;
+}
+
+.sm-btn {
+    border-radius: 3px;
+    border: 1px solid #5c5c5c;
+    padding: 5px;
+    color: #fff;
+    cursor: pointer;
+    background: linear-gradient(90deg, rgba(156, 85, 34, 1) 0%, rgba(32, 50, 103, 1) 42%, rgba(13, 18, 25, 1) 69%, rgba(22, 47, 60, 1) 100%);
+}
