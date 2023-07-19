@@ -55,7 +55,7 @@ app.post('/', (req, res) => {
 
 		if (data.status === 202) {
 			axios.post(
-				'https://hooks.slack.com/services/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',
+				'https://hooks.slack.com/services/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',
 				{
 					blocks: [
 						{
