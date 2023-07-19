@@ -62,7 +62,7 @@ app.post('/', (req, res) => {
 							type: 'section',
 							text: {
 								type: 'mrkdwn',
-								text: `Hello, your new site (${req.body.displayName}) has started building. It takes minutes to build. You can check the operation status intermitently via http://localhost:3000/operation/${req.body.displayName}/${data.operation_id}.`,
+								text: `Hello, your new site (${req.body.displayName}) has started building. It takes minutes to build. You can check the operation status intermitently via https://site-builder-nodejs-xvsph.kinsta.app/operation/${req.body.displayName}/${data.operation_id}.`,
 							},
 						},
 						{
