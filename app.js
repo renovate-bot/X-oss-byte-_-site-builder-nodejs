@@ -54,37 +54,34 @@ app.post('/', (req, res) => {
 		// console.log(data);
 
 		if (data.status === 202) {
-			axios.post(
-				'https://hooks.slack.com/services/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',
-				{
-					blocks: [
-						{
-							type: 'section',
-							text: {
-								type: 'mrkdwn',
-								text: `Hello, your new site (${req.body.displayName}) has started building. It takes minutes to build. You can check the operation status intermitently via https://site-builder-nodejs-xvsph.kinsta.app/operation/${req.body.displayName}/${data.operation_id}.`,
-							},
+			axios.post(`${process.env.SLACK_WEBHOOK_URL}`, {
+				blocks: [
+					{
+						type: 'section',
+						text: {
+							type: 'mrkdwn',
+							text: `Hello, your new site (${req.body.displayName}) has started building. It takes minutes to build. You can check the operation status intermitently via https://site-builder-nodejs-xvsph.kinsta.app/operation/${req.body.displayName}/${data.operation_id}.`,
 						},
-						{
-							type: 'divider',
+					},
+					{
+						type: 'divider',
+					},
+					{
+						type: 'section',
+						text: {
+							type: 'mrkdwn',
+							text: "_Here are your site's details:_",
 						},
-						{
-							type: 'section',
-							text: {
-								type: 'mrkdwn',
-								text: "_Here are your site's details:_",
-							},
+					},
+					{
+						type: 'section',
+						text: {
+							type: 'mrkdwn',
+							text: `1. *Site URL:* http://${req.body.displayName}.kinsta.cloud/\n2. *WP Admin URL:* http://${req.body.displayName}.kinsta.cloud/wp-admin/`,
 						},
-						{
-							type: 'section',
-							text: {
-								type: 'mrkdwn',
-								text: `1. *Site URL:* http://${req.body.displayName}.kinsta.cloud/\n2. *WP Admin URL:* http://${req.body.displayName}.kinsta.cloud/wp-admin/`,
-							},
-						},
-					],
-				}
-			);
+					},
+				],
+			});
 			res.redirect(`/operation/${req.body.displayName}/${data.operation_id}`);
 		}
 	};
