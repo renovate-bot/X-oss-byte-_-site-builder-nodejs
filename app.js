@@ -81,13 +81,16 @@ app.post('/', (req, res) => {
 		};
 
 		if (data.status === 202) {
-			fetch(process.env.SLACK_WEBHOOK_URL, {
-				method: 'POST',
-				headers: {
-					'Content-Type': 'application/json',
-				},
-				body: JSON.stringify(message),
-			});
+			fetch(
+				`https://hooks.slack.com/services/${process.env.SLACK_WEBHOOK_ID}`,
+				{
+					method: 'POST',
+					headers: {
+						'Content-Type': 'application/json',
+					},
+					body: JSON.stringify(message),
+				}
+			);
 			res.redirect(`/operation/${req.body.displayName}/${data.operation_id}`);
 		}
 	};
