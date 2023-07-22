@@ -1,7 +1,6 @@
 const express = require('express');
 require('dotenv').config();
 const expressEjsLayouts = require('express-ejs-layouts');
-const axios = require('axios');
 
 const app = express();
 
@@ -21,7 +20,7 @@ const KinstaAPIUrl = 'https://api.kinsta.com/v2';
 
 // Naviagtion
 app.get('/', (req, res) => {
-	res.render('pages/index', { errors: '' });
+	res.render('pages/index');
 });
 
 app.post('/', (req, res) => {
@@ -50,37 +49,44 @@ app.post('/', (req, res) => {
 		});
 
 		const data = await resp.json();
-		// res.send(data);
 		// console.log(data);
 
+		const message = {
+			blocks: [
+				{
+					type: 'section',
+					text: {
+						type: 'mrkdwn',
+						text: `Hello, your new site (${req.body.displayName}) has started building. It takes minutes to build. You can check the operation status intermittently via https://site-builder-nodejs-xvsph.kinsta.app/operation/${req.body.displayName}/${data.operation_id}.`,
+					},
+				},
+				{
+					type: 'divider',
+				},
+				{
+					type: 'section',
+					text: {
+						type: 'mrkdwn',
+						text: "_Here are your site's details:_",
+					},
+				},
+				{
+					type: 'section',
+					text: {
+						type: 'mrkdwn',
+						text: `1. *Site URL:* http://${req.body.displayName}.kinsta.cloud/\n2. *WP Admin URL:* http://${req.body.displayName}.kinsta.cloud/wp-admin/`,
+					},
+				},
+			],
+		};
+
 		if (data.status === 202) {
-			axios.post(`${process.env.SLACK_WEBHOOK_URL}`, {
-				blocks: [
-					{
-						type: 'section',
-						text: {
-							type: 'mrkdwn',
-							text: `Hello, your new site (${req.body.displayName}) has started building. It takes minutes to build. You can check the operation status intermitently via https://site-builder-nodejs-xvsph.kinsta.app/operation/${req.body.displayName}/${data.operation_id}.`,
-						},
-					},
-					{
-						type: 'divider',
-					},
-					{
-						type: 'section',
-						text: {
-							type: 'mrkdwn',
-							text: "_Here are your site's details:_",
-						},
-					},
-					{
-						type: 'section',
-						text: {
-							type: 'mrkdwn',
-							text: `1. *Site URL:* http://${req.body.displayName}.kinsta.cloud/\n2. *WP Admin URL:* http://${req.body.displayName}.kinsta.cloud/wp-admin/`,
-						},
-					},
-				],
+			fetch(process.env.SLACK_WEBHOOK_URL, {
+				method: 'POST',
+				headers: {
+					'Content-Type': 'application/json',
+				},
+				body: JSON.stringify(message),
 			});
 			res.redirect(`/operation/${req.body.displayName}/${data.operation_id}`);
 		}
@@ -110,6 +116,8 @@ app.get('/operation/:displayName/:operationId', (req, res) => {
 });
 
 // Listen on port 3000
-app.listen(process.env.PORT, () => {
-	console.log(`Your app is running on http://localhost:${process.env.PORT}/`);
+app.listen(process.env.PORT || 3000, () => {
+	console.log(
+		`Your app is running on http://localhost:${process.env.PORT || 3000}/`
+	);
 });
