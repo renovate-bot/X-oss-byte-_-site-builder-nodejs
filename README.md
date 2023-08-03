@@ -1,4 +1,5 @@
-![building-a-slackbot-using-node js-and-kinsta-api-for-message-sending](https://github.com/olawanlejoel/site-builder-nodejs/assets/57611810/ebabaede-5800-4d9d-b364-10ba35bf5642)
+
+![building-a-slackbot-using-node js-and-kinsta-api-for-message-sending (1)](https://github.com/olawanlejoel/site-builder-nodejs/assets/57611810/bf6cd041-07a9-4425-a1d0-2d13349b95fb)
 
 # Sending Message To Slack With Incoming Webhooks, Node.js, and Kinsta API
 
