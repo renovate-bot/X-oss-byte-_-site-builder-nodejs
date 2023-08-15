@@ -1,7 +1,7 @@
 
 ![building-a-slackbot-using-node js-and-kinsta-api-for-message-sending (1)](https://github.com/olawanlejoel/site-builder-nodejs/assets/57611810/bf6cd041-07a9-4425-a1d0-2d13349b95fb)
 
-# Sending Message To Slack With Incoming Webhooks, Node.js, and Kinsta API
+# Managing Kinsta Services With Kinsta API and Slack
 
 This tutorial explains how to build a Slackbot (or Slack application) that interacts with the Kinsta API to retrieve information and delivers it as real-time messages to a designated Slack channel using the Slack API Incoming Webhooks.
 Read the [full article](https://kinsta.com/blog/SLUG/).
